@@ -6,7 +6,9 @@ var logger = require('morgan');
  var ejs=require('ejs');
 var index1Router =require('./routes/index1');
 var aboutRouter =require('./routes/about') ;
-
+// var addRouter =require('./routes/add')
+const userModel =require('./routes/Model')
+var aRouter =require('./routes/a')
 var indexRouter = require('./routes/index');
 var registerRouter=require('./routes/register');
 const session = require('express-session');
@@ -30,11 +32,13 @@ app.use(session({
   cookie: {user:"default",maxAge: 14*24*60*60*1000}
 }));
 
-app.use('/about',aboutRouter)
-app.use('/index1',index1Router)
-app.use('/', indexRouter);
+app.use('/about',aboutRouter);
+app.use('/',index1Router);
+app.use('/b', indexRouter);
 app.use('/register',registerRouter);
-
+// app.use('/add',addRouter);
+app.use('/a', aRouter);
+app.use('/add', userModel);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
