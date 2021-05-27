@@ -256,20 +256,21 @@
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>姓名</th>
-                                                <th>昵称</th>
-                                                <th>用户名</th>
+                                                <th>ID</th>
+                                                <th>名称</th>
+                                                <th>工资</th>
+                                                <th>公司名</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                               <% detail.forEach(d=>{ %>
                                                             <tr>
-                                                                <td><%=d.名字 %></td>
-                                                                <td><%=d.昵称 %></td>
-                                                                <td><%=d.用户名 %></td>
+                                                                <td><%=d.id %></td>
+                                                                <td><%=d.名称 %></td>
+                                                                <td><%=d.工资 %></td>
+                                                                <td><%=d.公司名 %></td>
                                                                
-                                                              
+                                                             
                                                             </tr>
                                                         
                                                         <%})  %>
