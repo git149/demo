@@ -4,16 +4,19 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
  var ejs=require('ejs');
+ var zymRouter=require('./routes/zym')
 var index1Router =require('./routes/index1');
 var aboutRouter =require('./routes/about') ;
-// var addRouter =require('./routes/add')
+var addRouter =require('./routes/a');
+var updRouter =require('./routes/upd')
 const userModel =require('./routes/Model')
-var aRouter =require('./routes/a')
+// var delRouter =require('./routes/del')
 var indexRouter = require('./routes/index');
 var registerRouter=require('./routes/register');
 const session = require('express-session');
-
+var searchRouter=require('./routes/search');
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,12 +36,15 @@ app.use(session({
 }));
 
 app.use('/about',aboutRouter);
-app.use('/',index1Router);
-app.use('/b', indexRouter);
+// app.use('/',indexRouter);
+app.use('/upd',updRouter);
+app.use('/index', indexRouter);
+app.use('/index1', index1Router);
 app.use('/register',registerRouter);
-// app.use('/add',addRouter);
-app.use('/a', aRouter);
-app.use('/add', userModel);
+// app.use('/del', delRouter);
+app.use('/zym',zymRouter);
+app.use('/add', addRouter);
+app.use('/search',searchRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -52,7 +58,8 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  
+  console.log(err.message);
 });
 
 module.exports = app;

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  
+</head>
+<body>
+    <div class="block-content collapse in">
+        <table class="table table-striped">
+          
+                <tr>
+                    <th>ID</th>
+                    <th>名称</th>
+                    <th>工资</th>
+                    <th>公司名</th>
+                </tr>
+                <a href="/a"><button>新增</button></a>
+               
+                          <tbody>
+            <!--   <% for (var o of b){ %> -->
+                <% for(detail.forEach((d,i)=>){ %>
+                            <tr>
+                                <td><%=d.id %></td>
+                                <td><%=d.name %></td>
+                                <td><%=d.salary %></td>
+                                <td><%=d.company %></td>
+                                
+                                <td class="j">
+                                   
+                                    <input type="button" class=" upd" value="修改" data-id="<%=i %>"
+                                    <input type="button" class=" del" value="删除" data-id="<%=i %>"
+                                   
+                                <span class="upBtn"></span><span class="downBtn"></td>
+                            </tr>
+                        
+                        <%})  %>
+          </tbody>
+            
+        </table>
+    </div>
+    <!-- <script>
+            function add(){
+                window.location.href ="/index1/a"
+            }
+    </script> -->
+</body>
+</html>
